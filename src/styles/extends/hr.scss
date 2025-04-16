@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '@styles/mixins' as *;
+@use '@styles/settings/colors' as *;
+
+%hr {
+  hr {
+    width: 100%;
+
+    @include sizing(height, size(0.25));
+  }
+
+  @each $color, $value in map.get($colors, default) {
+    &.color-#{'' + $color} {
+      hr {
+        background-color: colors(default, $color);
+      }
+    }
+  }
+}

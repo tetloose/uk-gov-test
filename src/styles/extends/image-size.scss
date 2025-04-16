@@ -1,0 +1,24 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%image-size {
+  &.default-image-size-cover {
+    @include object-fit(cover, null);
+  }
+
+  &.default-image-size-contain {
+    @include object-fit(contain, null);
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      &.#{$breakpoint}-image-size-cover {
+        @include object-fit(cover, null);
+      }
+
+      &.#{$breakpoint}-image-size-contain {
+        @include object-fit(contain, null);
+      }
+    }
+  }
+}

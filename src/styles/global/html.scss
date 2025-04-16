@@ -1,0 +1,29 @@
+@use '@styles/settings' as *;
+
+html {
+  width: 100%;
+  height: vars(vh, fullscreen);
+  overflow: hidden auto;
+
+  @extend %f-body;
+  @extend %f-regular;
+  @include font-smoothing;
+  @include scrollbar;
+
+  @if vars(settings, rem) {
+    @include mq(vars(breakpoint, med), max-width) {
+      font-size: 70%;
+    }
+
+    @include mq-between(
+      vars(breakpoint, med),
+      vars(breakpoint, lrg)
+    ) {
+      font-size: 80%;
+    }
+
+    @include mq(vars(breakpoint, lrg)) {
+      font-size: 100%;
+    }
+  }
+}

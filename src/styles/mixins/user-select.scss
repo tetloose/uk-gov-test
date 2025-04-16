@@ -1,0 +1,8 @@
+@mixin user-select($disabled: false) {
+  @if $disabled {
+    user-select: none;
+  }
+  @else {
+    user-select: all;
+  }
+}

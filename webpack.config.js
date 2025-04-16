@@ -1,7 +1,13 @@
 const path = require('path');
+const StylelintPlugin = require('stylelint-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+
+const mode = process.env.ENV === 'dev'
 
 module.exports = {
-  mode: 'development',
+  mode: mode ? 'development' : 'production',
   entry: './src/scripts/index.ts',
   devtool: 'inline-source-map',
   module: {
@@ -11,16 +17,67 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.scss$/,
+        use: [
+          mode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              implementation: require('sass'),
+              sassOptions: {
+                quietDeps: false
+              }
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', 'scss', 'css'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@styles': path.resolve(__dirname, 'src/styles')
+    }
   },
   devServer: {
     static: './public',
+    client: {
+      overlay: {
+        errors: true,
+        warnings: true
+      }
+    }
   },
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
   },
+  plugins: [
+    new StylelintPlugin({
+      files: 'src/**/*.scss',
+      failOnError: true,
+      emitErrors: true,
+      lintDirtyModulesOnly: false
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[name].css'
+    })
+  ],
+  optimization: {
+    minimize: !mode,
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin()
+    ]
+  }
 };

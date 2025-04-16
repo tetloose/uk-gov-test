@@ -1,0 +1,40 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%direction {
+  &.default-direction-row {
+    flex-direction: row;
+  }
+
+  &.default-direction-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &.default-direction-column {
+    flex-direction: column;
+  }
+
+  &.default-direction-column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      &.#{$breakpoint}-direction-row {
+        flex-direction: row;
+      }
+
+      &.#{$breakpoint}-direction-row-reverse {
+        flex-direction: row-reverse;
+      }
+
+      &.#{$breakpoint}-direction-column {
+        flex-direction: column;
+      }
+
+      &.#{$breakpoint}-direction-column-reverse {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}

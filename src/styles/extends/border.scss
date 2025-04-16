@@ -1,0 +1,41 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/colors' as *;
+@use '@styles/settings/variables' as *;
+@use 'sass:map';
+
+%border {
+  &[class*='border-'] {
+    border-style: solid;
+    border-color: transparent;
+  }
+
+  @each $direction in vars(settings, directions) {
+    &.default-border-#{$direction}-none {
+      border-#{$direction}-width: 0;
+    }
+
+    &.default-border-#{$direction} {
+      @include sizing('border-#{$direction}-width', size(.25));
+    }
+
+    @each $color, $value in map.get($colors, default) {
+      &.border-#{$direction}-#{'' + $color} {
+        border-#{$direction}-color: color(default, #{$color});
+      }
+    }
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      @each $direction in vars(settings, directions) {
+        &.#{$breakpoint}-border-#{$direction}-none {
+          border-#{$direction}-width: 0;
+        }
+
+        &.#{$breakpoint}-border-#{$direction} {
+          @include sizing('border-#{$direction}-width', size(.25));
+        }
+      }
+    }
+  }
+}

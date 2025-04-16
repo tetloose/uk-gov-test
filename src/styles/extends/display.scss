@@ -1,0 +1,48 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%display {
+  &.default-display-block {
+    display: block;
+  }
+
+  &.default-display-inline {
+    display: inline;
+  }
+
+  &.default-display-inline-block {
+    display: inline-block;
+  }
+
+  &.default-display-flex {
+    display: flex;
+  }
+
+  &.default-display-inline-flex {
+    display: inline-flex;
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      &.#{$breakpoint}-display-block {
+        display: block;
+      }
+
+      &.#{$breakpoint}-display-inline {
+        display: inline;
+      }
+
+      &.#{$breakpoint}-display-inline-block {
+        display: inline-block;
+      }
+
+      &.#{$breakpoint}-display-flex {
+        display: flex;
+      }
+
+      &.#{$breakpoint}-display-inline-flex {
+        display: inline-flex;
+      }
+    }
+  }
+}

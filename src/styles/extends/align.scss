@@ -1,0 +1,48 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%align {
+  &.default-align-flex-start {
+    align-items: flex-start;
+  }
+
+  &.default-align-center {
+    align-items: center;
+  }
+
+  &.default-align-flex-end {
+    align-items: flex-end;
+  }
+
+  &.default-align-stretch {
+    align-items: stretch;
+  }
+
+  &.default-align-baseline {
+    align-items: baseline;
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      &.#{$breakpoint}-align-flex-start {
+        align-items: flex-start;
+      }
+
+      &.#{$breakpoint}-align-center {
+        align-items: center;
+      }
+
+      &.#{$breakpoint}-align-flex-end {
+        align-items: flex-end;
+      }
+
+      &.#{$breakpoint}-align-stretch {
+        align-items: stretch;
+      }
+
+      &.#{$breakpoint}-align-baseline {
+        align-items: baseline;
+      }
+    }
+  }
+}

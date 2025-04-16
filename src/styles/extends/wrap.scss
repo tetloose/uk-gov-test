@@ -1,0 +1,32 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%wrap {
+  &.default-wrap-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.default-wrap-wrap {
+    flex-wrap: wrap;
+  }
+
+  &.default-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      &.#{$breakpoint}-wrap-nowrap {
+        flex-wrap: nowrap;
+      }
+
+      &.#{$breakpoint}-wrap-wrap {
+        flex-wrap: wrap;
+      }
+
+      &.#{$breakpoint}-wrap-reverse {
+        flex-wrap: wrap-reverse;
+      }
+    }
+  }
+}

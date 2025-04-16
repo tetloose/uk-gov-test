@@ -1,0 +1,15 @@
+@use '@styles/extends/typography' as *;
+
+%text-transform {
+  &.text-transform-capitalize {
+    @extend %f-capitalize;
+  }
+
+  &.text-transform-uppercase {
+    @extend %f-uppercase;
+  }
+
+  &.text-transform-lowercase {
+    @extend %f-lowercase;
+  }
+}

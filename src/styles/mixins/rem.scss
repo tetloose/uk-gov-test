@@ -1,0 +1,41 @@
+@use '@styles/settings/variables' as *;
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:list';
+
+@function rem($value) {
+  $baseline: vars(settings, browser-context);
+
+  @if $value == 0 {
+    @return 0;
+  }
+
+  @if meta.type-of($value) == list {
+    $result: ();
+
+    @each $e in $value {
+      $result: list.append($result, rem($e, $baseline));
+    }
+
+    @return $result;
+  }
+  @else {
+    $new-value: calc(calc($value / $baseline) * 1rem);
+
+    @return if(
+      meta.type-of($value) == number and math.unit($value) == px,
+      $new-value,
+      $value
+    );
+  }
+}
+
+@mixin rem($properties) {
+  @each $property, $value in $properties {
+    @if meta.type-of($value) == number and $value != 0 {
+      $value: if(math.is-unitless($value), $value * 1px, $value);
+    }
+
+    #{$property}: rem($value);
+  }
+}

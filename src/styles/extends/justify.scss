@@ -1,0 +1,56 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%justify {
+  &.default-justify-flex-start {
+    justify-content: flex-start;
+  }
+
+  &.default-justify-center {
+    justify-content: center;
+  }
+
+  &.default-justify-flex-end {
+    justify-content: flex-end;
+  }
+
+  &.default-justify-space-between {
+    justify-content: space-between;
+  }
+
+  &.default-justify-space-around {
+    justify-content: space-around;
+  }
+
+  &.default-justify-space-evenly {
+    justify-content: space-evenly;
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      &.#{$breakpoint}-justify-flex-start {
+        justify-content: flex-start;
+      }
+
+      &.#{$breakpoint}-justify-center {
+        justify-content: center;
+      }
+
+      &.#{$breakpoint}-justify-flex-end {
+        justify-content: flex-end;
+      }
+
+      &.#{$breakpoint}-justify-space-between {
+        justify-content: space-between;
+      }
+
+      &.#{$breakpoint}-justify-space-around {
+        justify-content: space-around;
+      }
+
+      &.#{$breakpoint}-justify-space-evenly {
+        justify-content: space-evenly;
+      }
+    }
+  }
+}

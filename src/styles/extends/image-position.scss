@@ -1,0 +1,80 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%image-position {
+  &.default-image-position-center {
+    @include object-fit(null, center center);
+  }
+
+  &.default-image-position-left-top {
+    @include object-fit(null, left top);
+  }
+
+  &.default-image-position-left-center {
+    @include object-fit(null, left center);
+  }
+
+  &.default-image-position-left-bottom {
+    @include object-fit(null, left bottom);
+  }
+
+  &.default-image-position-right-top {
+    @include object-fit(null, right top);
+  }
+
+  &.default-image-position-right-center {
+    @include object-fit(null, right center);
+  }
+
+  &.default-image-position-right-bottom {
+    @include object-fit(null, right bottom);
+  }
+
+  &.default-image-position-center-top {
+    @include object-fit(null, center top);
+  }
+
+  &.default-image-position-center-bottom {
+    @include object-fit(null, center bottom);
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      &.#{$breakpoint}-image-position-center {
+        @include object-fit(null, center center);
+      }
+
+      &.#{$breakpoint}-image-position-left-top {
+        @include object-fit(null, left top);
+      }
+
+      &.#{$breakpoint}-image-position-left-center {
+        @include object-fit(null, left center);
+      }
+
+      &.#{$breakpoint}-image-position-left-bottom {
+        @include object-fit(null, left bottom);
+      }
+
+      &.#{$breakpoint}-image-position-right-top {
+        @include object-fit(null, right top);
+      }
+
+      &.#{$breakpoint}-image-position-right-center {
+        @include object-fit(null, right center);
+      }
+
+      &.#{$breakpoint}-image-position-right-bottom {
+        @include object-fit(null, right bottom);
+      }
+
+      &.#{$breakpoint}-image-position-center-top {
+        @include object-fit(null, center top);
+      }
+
+      &.#{$breakpoint}-image-position-center-bottom {
+        @include object-fit(null, center bottom);
+      }
+    }
+  }
+}
