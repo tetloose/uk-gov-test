@@ -2,7 +2,7 @@ import '../styles/app.scss'
 
 class Main {
   constructor() {
-    console.log('hi')
+    console.log(process.env.API || 'Add API url in .env')
   }
 }
 

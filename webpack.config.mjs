@@ -1,5 +1,6 @@
 import autoprefixer from 'autoprefixer'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
+import Dotenv from 'dotenv-webpack'
 import ESLintPlugin from 'eslint-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import path from 'node:path'
@@ -79,6 +80,7 @@ export default (_, argv) => {
       filename: 'bundle.js'
     },
     plugins: [
+      new Dotenv(),
       new StylelintPlugin({
         files: 'src/**/*.scss',
         failOnError: true,
