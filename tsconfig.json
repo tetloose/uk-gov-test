@@ -23,8 +23,11 @@
     "src/**/*.ts"
   ],
   "exclude": [
+    ".husky",
+    ".scripts",
     ".vscode",
     "node_modules",
-    "public"
+    "public",
+    "coverage"
   ]
 }

@@ -24,8 +24,7 @@ const ignoreConfig = {
     '**/.vscode/**',
     '**/node_modules/**',
     '**/public/**',
-    '**/coverage/**',
-    '**/webpack.config.js/**'
+    '**/coverage/**'
   ]
 }
 
