@@ -1,0 +1,8 @@
+#!/bin/bash
+
+git status
+echo "Branch: $BRANCH"
+read -p "Enter a commit message [ENTER]: " desc
+git add --a
+git commit -m "$desc" && \
+git push

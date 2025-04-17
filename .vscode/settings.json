@@ -22,7 +22,24 @@
     "css",
     "scss"
   ],
-  "files.exclude": {},
+  "files.exclude": {
+    ".husky": true,
+    ".scripts": true,
+    ".vscode": true,
+    ".editorconfig": true,
+    ".env.example": true,
+    ".gitignore": true,
+    ".nvmrc": true,
+    "eslint.config.mjs": true,
+    "jest.config.mjs": true,
+    "package.json": true,
+    "stylelint.config.mjs": true,
+    "toolkit": true,
+    "tsconfig.json": true,
+    "webpack.config.mjs": true,
+    "yarn.lock": true,
+    "node_modules": true
+  },
   "search.exclude": {
     "node_modules": true,
     "public": true
