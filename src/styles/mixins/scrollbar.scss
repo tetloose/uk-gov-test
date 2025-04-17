@@ -2,8 +2,8 @@
 
 @mixin scrollbar(
   $size: 1.25rem,
-  $foreground-color: color(default, dark),
-  $background-color: color(default, light)
+  $foreground-color: $brand,
+  $background-color: $background
 ) {
   scrollbar-color: $foreground-color $background-color;
   scrollbar-width: thin;

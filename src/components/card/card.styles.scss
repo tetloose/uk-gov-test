@@ -1,6 +1,104 @@
 @use '@styles/settings' as *;
 
 .card {
-  display: block;
-  width: 100%;
+  background-color: $background;
+  border-style: solid;
+  border-color: $brand;
+
+  @include mq(vars(breakpoint, lrg), max-width) {
+    position: relative;
+    padding: rem(15px) rem(15px) rem(10px) rem(95px);
+    border-width: rem(5px) 0 0;
+  }
+
+  @include mq(vars(breakpoint, lrg)) {
+    width: 100%;
+    max-width: rem(450px);
+    margin-right: auto;
+    margin-left: auto;
+    padding: rem(20px) rem(20px) rem(15px);
+    border-width: 0 0 0 rem(5px);
+  }
+
+  &__image {
+    object-fit: contain;
+    border-style: solid;
+    border-color: $brand;
+    border-radius: vars(radius, round);
+    object-position: center center;
+
+    @include mq(vars(breakpoint, lrg), max-width) {
+      position: absolute;
+      top: rem(15px);
+      left: rem(15px);
+      width: rem(60px);
+      height: rem(60px);
+      border-width: rem(3px);
+    }
+
+    @include mq(vars(breakpoint, lrg)) {
+      width: rem(100px);
+      height: rem(100px);
+      border-width: rem(5px);
+    }
+  }
+
+  &__party {
+    color: $grey2;
+
+    @extend %f-secondary;
+
+    @include mq(vars(breakpoint, lrg)) {
+      padding-top: rem(20px);
+    }
+  }
+
+  &__name {
+    color: $brand;
+
+    @extend %f-primary;
+    @extend %f-bold;
+
+    @include mq(vars(breakpoint, lrg), max-width) {
+      padding-top: rem(5px);
+    }
+
+    @include mq(vars(breakpoint, lrg)) {
+      padding-top: rem(10px);
+    }
+  }
+
+  &__constituency {
+    color: $grey2;
+
+    @extend %f-tertiary;
+
+    @include mq(vars(breakpoint, lrg), max-width) {
+      padding-top: rem(15px);
+    }
+
+    @include mq(vars(breakpoint, lrg)) {
+      padding-top: rem(20px);
+    }
+  }
+
+  &__status {
+    display: block;
+    margin-top: rem(20px);
+    background-color: $grey1;
+    border-radius: rem(vars(radius, sml));
+    color: $alert;
+
+    @extend %f-tertiary;
+    @extend %f-bold;
+
+    @include mq(vars(breakpoint, lrg), max-width) {
+      padding: rem(15px);
+    }
+
+    @include mq(vars(breakpoint, lrg)) {
+      margin-top: rem(20px);
+      padding: rem(10px) rem(15px);
+    }
+  }
 }

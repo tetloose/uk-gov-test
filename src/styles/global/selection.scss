@@ -1,2 +1,2 @@
 @use '@styles/settings' as *;
-@include selection(color(default, dark), color(default, light));
+@include selection($brand, $background);

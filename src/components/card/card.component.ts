@@ -7,10 +7,10 @@ class Card extends ComponentClass {
   constructor(module: HTMLElement) {
     super(module)
 
-    this.render()
+    this.fetchCard()
   }
 
-  render() {
+  fetchCard() {
     const { module } = this
 
     if (!module) return
@@ -23,7 +23,9 @@ class Card extends ComponentClass {
       status: 'No Longer Serving'
     }
 
-    module.innerHTML = template<CardData>(data)
+    const html = template<CardData>(data)
+
+    this.render(html)
   }
 }
 
