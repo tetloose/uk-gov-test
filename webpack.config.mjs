@@ -2,6 +2,7 @@ import autoprefixer from 'autoprefixer'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import Dotenv from 'dotenv-webpack'
 import ESLintPlugin from 'eslint-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -17,10 +18,17 @@ export default (_, argv) => {
 
   return {
     mode: mode ? 'development' : 'production',
-    entry: './src/scripts/index.ts',
-    devtool: 'inline-source-map',
+    entry: './src/app.ts',
+    devtool: mode ? 'inline-source-map' : false,
     module: {
       rules: [
+        {
+          test: /\.hbs$/,
+          loader: 'handlebars-loader',
+          options: {
+            partialDirs: [path.resolve(__dirname, 'src/components')]
+          }
+        },
         {
           test: /\.ts$/,
           use: 'ts-loader',
@@ -60,27 +68,43 @@ export default (_, argv) => {
       ]
     },
     resolve: {
-      extensions: ['.ts', '.js', 'scss', 'css'],
+      extensions: ['.ts', '.js', '.scss', '.css'],
       alias: {
         '@': path.resolve(__dirname, 'src'),
-        '@styles': path.resolve(__dirname, 'src/styles')
+        '@styles': path.resolve(__dirname, 'src/styles'),
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@utilities': path.resolve(__dirname, 'src/utilities'),
+        '@config': path.resolve(__dirname, 'src/config')
       }
     },
     devServer: {
       static: './public',
+      watchFiles: ['src/templates/**/*.hbs', 'src/components/**/*.hbs'],
       client: {
         overlay: {
           errors: true,
-          warnings: true
+          warnings: false
         }
       }
     },
     output: {
       path: path.resolve(__dirname, 'public'),
-      filename: 'bundle.js'
+      filename: 'js/[name].[contenthash].js',
+      clean: true
     },
     plugins: [
       new Dotenv(),
+      new HtmlWebpackPlugin({
+        template: './src/templates/index.hbs',
+        filename: 'index.html',
+        title: 'Parliament Frontend App',
+        author: 'James Tetley',
+        description:
+          'A frontend take-home exercise for Parliament Digital Service.',
+        image: 'https://placekitten.com/640/360',
+        url: 'https://tetloose.com',
+        favicon: './src/assets/favicon.ico'
+      }),
       new StylelintPlugin({
         files: 'src/**/*.scss',
         failOnError: true,
@@ -94,8 +118,8 @@ export default (_, argv) => {
         failOnError: false
       }),
       new MiniCssExtractPlugin({
-        filename: 'css/[name].css',
-        chunkFilename: 'css/[name].css'
+        filename: 'css/[name].[contenthash].css',
+        chunkFilename: 'css/[name].[contenthash].css'
       })
     ],
     optimization: {
