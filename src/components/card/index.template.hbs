@@ -1,0 +1,32 @@
+<div
+  data-module="Card"
+  class="card"
+>
+  {{#if image}}
+    <img
+      src="{{image}}"
+      alt=""
+      class="card__image"
+    >
+  {{/if}}
+  <div class="card__content">
+    {{#if party}}
+      <h2>{{party}}</h2>
+    {{/if}}
+    {{#if name}}
+      <h3>
+        <strong>
+          {{name}}
+        </strong>
+      </h3>
+    {{/if}}
+    {{#if constituency}}
+      <p>{{constituency}}</p>
+    {{/if}}
+    {{#if status}}
+      <span class="card__content-status">
+        {{status}}
+      </span>
+    {{/if}}
+  </div>
+</div>

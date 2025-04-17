@@ -29,8 +29,9 @@
   },
   "include": [
     "src",
-    "./src/styles/**/*.scss",
-    "src/**/*.ts"
+    "src/types",
+    "src/**/*.ts",
+    "src/**/*.scss"
   ],
   "exclude": [
     ".husky",
