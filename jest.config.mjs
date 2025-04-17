@@ -6,6 +6,8 @@ export default {
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov'],
   moduleNameMapper: {
+    '\\.(scss|css)$': 'identity-obj-proxy',
+    '\\.hbs$': '<rootDir>/__mocks__/templateMock.ts',
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@styles/(.*)$': '<rootDir>/src/styles/$1',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
