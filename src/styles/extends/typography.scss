@@ -1,47 +1,44 @@
-%f-heading {
-  font-family: anton, sans-serif;
-}
+@use '@styles/settings/variables' as *;
+@use '@styles/mixins/media-query' as *;
+@use '@styles/mixins/rem' as *;
 
 %f-body {
-  font-family: mencken-std, sans-serif;
-}
-
-%f-light {
-  font-weight: 300;
+  font-family: Verdana, Arial, sans-serif;
 }
 
 %f-regular {
   font-weight: 400;
 }
 
-%f-medium {
-  font-weight: 600;
-}
-
 %f-bold {
   font-weight: 800;
 }
 
-%f-italic {
-  font-style: italic;
+%f-primary {
+  line-height: rem(20px);
+
+  @include mq(vars(breakpoint, lrg), max-width) {
+    font-size: rem(26px);
+  }
+
+  @include mq(vars(breakpoint, lrg)) {
+    font-size: rem(30px);
+  }
 }
 
-%f-oblique {
-  font-style: oblique;
+%f-secondary {
+  line-height: rem(21.6px);
+
+  @include mq(vars(breakpoint, lrg), max-width) {
+    font-size: rem(20px);
+  }
+
+  @include mq(vars(breakpoint, lrg)) {
+    font-size: rem(22px);
+  }
 }
 
-%f-uppercase {
-  text-transform: uppercase;
-}
-
-%f-capitalize {
-  text-transform: capitalize;
-}
-
-%f-lowercase {
-  text-transform: lowercase;
-}
-
-%f-underline {
-  text-decoration: underline;
+%f-tertiary {
+  font-size: rem(18px);
+  line-height: rem(24px);
 }
