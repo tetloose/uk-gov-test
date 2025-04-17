@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "setup": "bash toolkit setup",
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
     "lint": "eslint ./src && stylelint \"./src/**/*.scss\"",
@@ -12,7 +13,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "pre-commit": "yarn lint && yarn test"
+    "pre-commit": "yarn lint && yarn test",
+    "git:commit": "bash toolkit git-commit"
   },
   "author": "Parliamentary Digital Service",
   "license": "",

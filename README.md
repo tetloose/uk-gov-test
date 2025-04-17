@@ -10,12 +10,17 @@ The sidebar will open with a list of recommended extensions to be installed.
 
 See [Workspaces](https://marketplace.visualstudio.com/items?itemName=Fooxly.workspace) docs.
 
+## Show Hide System Files (ZEN MODE)
+
+![alt text](https://assets.fooxly.com/extensions/workspace/example.gif)
+
 ## ENV
 
 Duplicate `.env.example` to `.env`, update `API=` with api url.
 
 ## Commands
 
+- `yarn setup` - Generate ENV, Install packages and start application.
 - `yarn start` - Runs the app in development mode.
 - `yarn build` - Builds the app for production.
 - `yarn test` - Jest.
@@ -23,3 +28,4 @@ Duplicate `.env.example` to `.env`, update `API=` with api url.
 - `yarn test:watch` - Jest Watch mode
 - `yarn lint` - Lints JavaScript/TypeScript and SCSS files.
 - `yarn lint:fix` - Lints and automatically fixes errors in JavaScript/TypeScript and SCSS files.
+- `yarn git:commit` - Commits the working branch and prompts for a commit message.
