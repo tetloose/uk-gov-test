@@ -1,0 +1,16 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%z-index-hidden {
+  z-index: vars(z-index, hidden);
+}
+
+%z-index-none {
+  z-index: vars(z-index, none);
+}
+
+@each $breakpoint in vars(settings, breakpoints) {
+  %z-index-#{$breakpoint} {
+    z-index: vars(z-index, #{$breakpoint});
+  }
+}

@@ -1,0 +1,27 @@
+@use '@styles/mixins' as *;
+@include font-face(
+  'Akkurat Pro',
+  '/assets/fonts/AkkuratProTT-Regular',
+  400,
+  woff2
+);
+@include font-face(
+  'Akkurat Pro',
+  '/assets/fonts/AkkuratProTT-Bold',
+  700,
+  woff2
+);
+@include font-face(
+  'Akkurat Pro',
+  '/assets/fonts/AkkuratProTT-Italic',
+  400,
+  woff2,
+  italic
+);
+@include font-face(
+  'Akkurat Pro',
+  '/assets/fonts/AkkuratProTT-BoldItalic',
+  700,
+  woff2,
+  italic
+);

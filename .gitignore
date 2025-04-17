@@ -1,4 +1,6 @@
 .idea
 node_modules
+eslint.config.mjs
+.DS_store
 
 public/bundle.js

@@ -1,0 +1,88 @@
+@use 'sass:map';
+
+@function vars($name, $variant: null) {
+  @if $variant {
+    @return map.get(map.get($vars, $name), $variant);
+  }
+  @else {
+    @return map.get($vars, $name);
+  }
+}
+
+$vars: (
+  settings: (
+    browser-context: 16px,
+    spacing: 4px,
+    rem: false,
+    loop: 10,
+    breakpoints: (
+      'sml',
+      'med',
+      'lrg',
+      'xlrg',
+      'xxlrg'
+    ),
+    directions: (
+      'top',
+      'right',
+      'bottom',
+      'left'
+    )
+  ),
+  rem: (
+    sml: 70%,
+    med: 80%,
+    lrg: 100%
+  ),
+  row: (
+    columns: 12,
+    max-width: false
+  ),
+  breakpoint: (
+    sml: 420px,
+    med: 768px,
+    lrg: 1080px,
+    xlrg: 1440px,
+    xxlrg: 1920px
+  ),
+  vw: (
+    fullscreen: 100vw
+  ),
+  vh: (
+    fullscreen: 100vh
+  ),
+  transition: (
+    duration: (
+      slow: 600ms,
+      med: 400ms,
+      fast: 200ms
+    ),
+    timing: (
+      slow: cubic-bezier(0.25, 0.3, 0.25, 1),
+      med: cubic-bezier(0.25, 0.3, 0.25, 1),
+      fast: cubic-bezier(0, 0, 0.25, 1)
+    ),
+    delay: (
+      slow: 600ms,
+      med: 400ms,
+      fast: 200ms
+    )
+  ),
+  radius: (
+    sml: 4px,
+    med: 6px,
+    lrg: 8px,
+    xlrg: 10px,
+    xxlrg: 10px,
+    round: 50%
+  ),
+  z-index: (
+    hidden: -1,
+    none: 0,
+    sml: 1,
+    med: 2,
+    lrg: 3,
+    xlrg: 4,
+    xxlrg: 5
+  )
+);

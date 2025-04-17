@@ -1,0 +1,76 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%width {
+  width: 100%;
+
+  &.default-width-auto {
+    width: auto;
+  }
+
+  @for $i from 1 through vars(row, columns) {
+    &.default-width-#{$i} {
+      width: column-width(vars(row, columns), #{$i});
+    }
+  }
+
+  @include mq(vars(breakpoint, sml)) {
+    &.sml-width-auto {
+      width: auto;
+    }
+
+    @for $i from 1 through vars(row, columns) {
+      &.sml-width-#{$i} {
+        width: column-width(vars(row, columns), #{$i});
+      }
+    }
+  }
+
+  @include mq(vars(breakpoint, med)) {
+    &.med-width-auto {
+      width: auto;
+    }
+
+    @for $i from 1 through vars(row, columns) {
+      &.med-width-#{$i} {
+        width: column-width(vars(row, columns), #{$i});
+      }
+    }
+  }
+
+  @include mq(vars(breakpoint, lrg)) {
+    &.lrg-width-auto {
+      width: auto;
+    }
+
+    @for $i from 1 through vars(row, columns) {
+      &.lrg-width-#{$i} {
+        width: column-width(vars(row, columns), #{$i});
+      }
+    }
+  }
+
+  @include mq(vars(breakpoint, xlrg)) {
+    &.xlrg-width-auto {
+      width: auto;
+    }
+
+    @for $i from 1 through vars(row, columns) {
+      &.xlrg-width-#{$i} {
+        width: column-width(vars(row, columns), #{$i});
+      }
+    }
+  }
+
+  @include mq(vars(breakpoint, xxlrg)) {
+    &.xxlrg-width-auto {
+      width: auto;
+    }
+
+    @for $i from 1 through vars(row, columns) {
+      &.xxlrg-width-#{$i} {
+        width: column-width(vars(row, columns), #{$i});
+      }
+    }
+  }
+}

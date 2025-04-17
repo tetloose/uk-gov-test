@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use 'sass:color';
+
+@function color($name, $variant: null) {
+  @if $variant {
+    @return map.get(map.get($colors, $name), $variant);
+  }
+  @else {
+    @return map.get($colors, $name);
+  }
+}
+
+$dark: #000;
+$light: #fff;
+$red: #f00;
+$grey: #797876;
+$pink: #ff69b4;
+$colors: (
+  default: (
+    dark: $dark,
+    light: $light,
+    grey: $grey
+  ),
+  selection: (
+    dark: (
+      bg: $light,
+      color: $dark
+    ),
+    light: (
+      bg: $dark,
+      color: $light
+    ),
+    grey: (
+      bg: $dark,
+      color: $light
+    )
+  ),
+  red: (
+    default: $red
+  ),
+  pink: (
+    default: $pink
+  ),
+  grey: (
+    default: $grey
+  ),
+  link: (
+    dark: (
+      color: $dark,
+      active: $red,
+      hover: #{color.adjust($red, $alpha: -0.4)},
+      focus: #{color.adjust($red, $alpha: -0.4)}
+    ),
+    light: (
+      color: $light,
+      active: $pink,
+      hover: #{color.adjust($pink, $alpha: -0.4)},
+      focus: #{color.adjust($pink, $alpha: -0.4)}
+    ),
+    grey: (
+      color: $grey,
+      active: $pink,
+      hover: #{color.adjust($pink, $alpha: -0.4)},
+      focus: #{color.adjust($pink, $alpha: -0.4)}
+    )
+  )
+);

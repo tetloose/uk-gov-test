@@ -1,0 +1,90 @@
+@use '@styles/mixins/media-query' as *;
+@use '@styles/mixins/rem' as *;
+@use '@styles/settings/variables' as *;
+@use 'sass:list';
+@use 'sass:string';
+@use 'sass:meta';
+@use 'sass:map';
+
+$vw-min: vars(breakpoint, med);
+$vw-max: vars(breakpoint, xxlrg);
+$vw-context: calc($vw-max * 0.01);
+$vw-adjustment-min: 3vw;
+$vw-adjustment-max: 1vw;
+
+@mixin sizing($css-property, $values) {
+  @if vars(settings, rem) {
+    @if meta.type-of($values) == 'list' {
+      $result: ();
+
+      @each $value in $values {
+        $context: rem($value);
+        $result: list.append($result, $context);
+      }
+
+      #{$css-property}: string.unquote('#{list.join($result, '')}');
+    }
+    @else {
+      #{$css-property}: rem($values);
+    }
+  }
+  @else {
+    @if meta.type-of($values) == 'list' {
+      @include mq($vw-min, max-width) {
+        $result: ();
+
+        @each $value in $values {
+          $context: calc($value / $vw-context * $vw-adjustment-min);
+          $result: list.append($result, $context);
+        }
+
+        #{$css-property}: string.unquote('#{list.join($result, '')}');
+      }
+
+      @include mq-between($vw-min, $vw-max) {
+        $result: ();
+
+        @each $value in $values {
+          $context: calc($value / $vw-context * $vw-adjustment-max);
+          $result: list.append($result, $context);
+        }
+
+        #{$css-property}: string.unquote('#{list.join($result, '')}');
+      }
+
+      @include mq($vw-max) {
+        $result: ();
+
+        @each $value in $values {
+          $context: rem($value);
+          $result: list.append($result, $context);
+        }
+
+        #{$css-property}: string.unquote('#{list.join($result, '')}');
+      }
+    }
+    @else {
+      @include mq($vw-min, max-width) {
+        #{$css-property}: calc($values / $vw-context * $vw-adjustment-min);
+      }
+
+      @include mq-between($vw-min, $vw-max) {
+        #{$css-property}: calc($values / $vw-context * $vw-adjustment-max);
+      }
+
+      @include mq($vw-max) {
+        #{$css-property}: rem($values);
+      }
+    }
+  }
+}
+
+// Usage
+// Single value
+// @include sizing('padding-top', size(2));
+// Multi value
+// pass in values via css list array
+// @include sizing('padding', [size(2.5), size(5), size(7.5), size(10)]);
+// @include sizing('padding', [size(2.5), size(5), size(7.5)]);
+// @include sizing('padding', [size(2.5), size(5)]);
+// @include sizing('padding', [size(2.5), 0]);

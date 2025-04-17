@@ -1,0 +1,58 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%text-align {
+  &.default-text-align-left {
+    text-align: left;
+
+    img {
+      margin-right: auto;
+    }
+  }
+
+  &.default-text-align-right {
+    text-align: right;
+
+    img {
+      margin-left: auto;
+    }
+  }
+
+  &.default-text-align-center {
+    text-align: center;
+
+    img {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      &.#{$breakpoint}-text-align-left {
+        text-align: left;
+
+        img {
+          margin-right: auto;
+        }
+      }
+
+      &.#{$breakpoint}-text-align-right {
+        text-align: right;
+
+        img {
+          margin-left: auto;
+        }
+      }
+
+      &.#{$breakpoint}-text-align-center {
+        text-align: center;
+
+        img {
+          margin-right: auto;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}

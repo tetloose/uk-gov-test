@@ -1,0 +1,18 @@
+@use '@styles/mixins/selection' as *;
+@use '@styles/mixins/deep-get' as *;
+@use '@styles/settings/colors' as *;
+@use '@styles/settings/variables' as *;
+@use 'sass:map';
+
+%bg {
+  @each $color, $value in map.get($colors, default) {
+    &.bg-#{'' + $color} {
+      background-color: color(default, #{$color});
+
+      @include selection(
+        deep-get($colors, selection, $color, bg),
+        deep-get($colors, selection, $color, color)
+      );
+    }
+  }
+}

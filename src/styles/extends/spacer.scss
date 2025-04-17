@@ -1,0 +1,28 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+@for $i from 1 through vars(settings, loop) {
+  %spacer-padding-#{$i} {
+    @include sizing('padding-top', size($i));
+  }
+
+  %spacer-margin-#{$i} {
+    @include sizing('margin-top', size($i));
+  }
+}
+
+@each $breakpoint in vars(settings, breakpoints) {
+  @for $i from 1 through vars(settings, loop) {
+    %#{$breakpoint}-spacer-padding-#{$i} {
+      @include mq(vars(breakpoint, #{$breakpoint})) {
+        @include sizing('padding-top', size($i));
+      }
+    }
+
+    %#{$breakpoint}-spacer-margin-#{$i} {
+      @include mq(vars(breakpoint, #{$breakpoint})) {
+        @include sizing('margin-top', size($i));
+      }
+    }
+  }
+}

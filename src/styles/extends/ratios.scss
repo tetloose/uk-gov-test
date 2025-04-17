@@ -1,0 +1,48 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%ratios {
+  &.default-ratio-1x1 {
+    aspect-ratio: 1 / 1;
+  }
+
+  &.default-ratio-3x2 {
+    aspect-ratio: 3 / 2;
+  }
+
+  &.default-ratio-16x9 {
+    aspect-ratio: 16 / 9;
+  }
+
+  &.default-ratio-21x9 {
+    aspect-ratio: 21 / 9;
+  }
+
+  &.default-ratio-fullscreen {
+    height: vars(vh, fullscreen);
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      &.#{$breakpoint}-ratio-1x1 {
+        aspect-ratio: 1 / 1;
+      }
+
+      &.#{$breakpoint}-ratio-3x2 {
+        aspect-ratio: 3 / 2;
+      }
+
+      &.#{$breakpoint}-ratio-16x9 {
+        aspect-ratio: 16 / 9;
+      }
+
+      &.#{$breakpoint}-ratio-21x9 {
+        aspect-ratio: 21 / 9;
+      }
+
+      &.#{$breakpoint}-ratio-fullscreen {
+        height: vars(vh, fullscreen);
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use '@styles/extends/typography' as *;
+
+%font-style {
+  &.font-style-italic {
+    @extend %f-italic;
+  }
+
+  &.font-style-oblique {
+    @extend %f-oblique;
+  }
+}

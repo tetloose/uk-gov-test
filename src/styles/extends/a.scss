@@ -1,0 +1,44 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/colors' as *;
+@use '@styles/settings/variables' as *;
+@use 'sass:map';
+
+%a {
+  a {
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+
+    @include mq-hover {
+      cursor: pointer;
+
+      @include transition('all');
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+
+  @each $color, $value in map.get($colors, link) {
+    &.link-color-#{'' + $color} {
+      a {
+        color: deep-get($colors, link, $color, color);
+
+        @include mq-hover {
+          &:focus {
+            color: deep-get($colors, link, $color, focus);
+          }
+
+          &:hover {
+            color: deep-get($colors, link, $color, hover);
+            text-decoration: none;
+          }
+
+          &:active {
+            color: deep-get($colors, link, $color, active);
+          }
+        }
+      }
+    }
+  }
+}

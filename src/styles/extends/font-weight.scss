@@ -1,0 +1,19 @@
+@use '@styles/extends/typography' as *;
+
+%font-weight {
+  &.font-weight-light {
+    @extend %f-light;
+  }
+
+  &.font-weight-regular {
+    @extend %f-regular;
+  }
+
+  &.font-weight-medium {
+    @extend %f-medium;
+  }
+
+  &.font-weight-bold {
+    @extend %f-bold;
+  }
+}

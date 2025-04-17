@@ -1,0 +1,56 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%white-space {
+  &.default-white-space-normal {
+    white-space: normal;
+  }
+
+  &.default-white-space-nowrap {
+    white-space: nowrap;
+  }
+
+  &.default-white-space-pre {
+    white-space: pre;
+  }
+
+  &.default-white-space-pre-wrap {
+    white-space: pre-wrap;
+  }
+
+  &.default-white-space-pre-line {
+    white-space: pre-line;
+  }
+
+  &.default-white-space-break-spaces {
+    white-space: break-spaces;
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      &.#{$breakpoint}-white-space-normal {
+        white-space: normal;
+      }
+
+      &.#{$breakpoint}-white-space-nowrap {
+        white-space: nowrap;
+      }
+
+      &.#{$breakpoint}-white-space-pre {
+        white-space: pre;
+      }
+
+      &.#{$breakpoint}-white-space-pre-wrap {
+        white-space: pre-wrap;
+      }
+
+      &.#{$breakpoint}-white-space-pre-line {
+        white-space: pre-line;
+      }
+
+      &.#{$breakpoint}-white-space-break-spaces {
+        white-space: break-spaces;
+      }
+    }
+  }
+}

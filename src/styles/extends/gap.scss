@@ -1,0 +1,20 @@
+@use '@styles/mixins' as *;
+@use '@styles/settings/variables' as *;
+
+%gap {
+  @for $i from 1 through vars(settings, loop) {
+    &.default-gap-#{$i} {
+      @include sizing('gap', size($i));
+    }
+  }
+
+  @each $breakpoint in vars(settings, breakpoints) {
+    @include mq(vars(breakpoint, #{$breakpoint})) {
+      @for $i from 0 through vars(settings, loop) {
+        &.#{$breakpoint}-gap-#{$i} {
+          @include sizing('gap', size($i));
+        }
+      }
+    }
+  }
+}
