@@ -1,6 +1,8 @@
 .idea
 node_modules
-eslint.config.mjs
-.DS_store
-
+.DS_Store
+.env
+!.env.example
 public/bundle.js
+public/css
+public/css/*.css
