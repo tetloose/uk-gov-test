@@ -6,3 +6,4 @@ node_modules
 public/bundle.js
 public/css
 public/css/*.css
+coverage
