@@ -4,6 +4,7 @@
     "editorconfig.editorconfig",
     "stylelint.vscode-stylelint",
     "esbenp.prettier-vscode",
-    "Fooxly.workspace"
+    "Fooxly.workspace",
+    "andrejunges.Handlebars"
   ]
 }

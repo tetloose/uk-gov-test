@@ -3,7 +3,5 @@ node_modules
 .DS_Store
 .env
 !.env.example
-public/bundle.js
-public/css
-public/css/*.css
+public
 coverage
