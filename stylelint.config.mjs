@@ -293,8 +293,12 @@ const stylelintConfig = {
     ]
   },
   ignoreFiles: [
+    '.husky',
+    '.scripts',
+    '.vscode',
     'node_modules',
-    'public'
+    'public',
+    'coverage'
   ]
 }
 
