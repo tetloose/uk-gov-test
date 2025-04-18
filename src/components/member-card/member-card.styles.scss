@@ -1,6 +1,7 @@
 @use '@styles/settings' as *;
 
-.card {
+.member-card {
+  margin-top: rem(30px);
   background-color: $background;
   border-style: solid;
   border-color: $brand;
@@ -23,7 +24,6 @@
   &__image {
     object-fit: contain;
     border-style: solid;
-    border-color: $brand;
     border-radius: vars(radius, round);
     object-position: center center;
 

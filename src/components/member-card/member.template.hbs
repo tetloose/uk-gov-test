@@ -1,0 +1,32 @@
+<article
+  data-module="MemberCard"
+  data-id="{{id}}"
+  class="member-card"
+>
+  {{#if image}}
+    <img
+      src="{{image}}"
+      alt=""
+      class="member-card__image"
+      style="border-color: {{theme}}"
+    >
+  {{/if}}
+  {{#if party}}
+    <h2 class="member-card__party">{{party}}</h2>
+  {{/if}}
+  {{#if name}}
+    <h3 class="member-card__name">
+      {{name}}
+    </h3>
+  {{/if}}
+  {{#if constituency}}
+    <p class="member-card__constituency">{{constituency}}</p>
+  {{/if}}
+  {{#if active}}
+    {{#if status}}
+      <span class="member-card__status">
+        {{status}}
+      </span>
+    {{/if}}
+  {{/if}}
+</article>
