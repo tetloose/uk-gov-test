@@ -16,7 +16,7 @@ See [Workspaces](https://marketplace.visualstudio.com/items?itemName=Fooxly.work
 
 ## ENV
 
-Duplicate `.env.example` to `.env`, update `API=` with api url.
+Duplicate `.env.example` to `.env`, update `PUBLIC_API=` with api url.
 
 ## Commands
 
