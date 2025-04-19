@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#COMMANDS
+# ./toolkit git-commit
+# ./toolkit setup
+
+if [ "$1" = "git-commit" ]; then
+  eval "sh .scripts/$1"
+
+elif [ "$1" = "setup" ]; then
+  eval "sh .scripts/$1"
+fi

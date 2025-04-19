@@ -1,0 +1,44 @@
+@use '@styles/settings/variables' as *;
+@use '@styles/mixins/media-query' as *;
+@use '@styles/mixins/rem' as *;
+
+%f-body {
+  font-family: Verdana, Arial, sans-serif;
+}
+
+%f-regular {
+  font-weight: 400;
+}
+
+%f-bold {
+  font-weight: 800;
+}
+
+%f-primary {
+  line-height: rem(20px);
+
+  @include mq(vars(breakpoint, lrg), max-width) {
+    font-size: rem(26px);
+  }
+
+  @include mq(vars(breakpoint, lrg)) {
+    font-size: rem(30px);
+  }
+}
+
+%f-secondary {
+  line-height: rem(21.6px);
+
+  @include mq(vars(breakpoint, lrg), max-width) {
+    font-size: rem(20px);
+  }
+
+  @include mq(vars(breakpoint, lrg)) {
+    font-size: rem(22px);
+  }
+}
+
+%f-tertiary {
+  font-size: rem(18px);
+  line-height: rem(24px);
+}

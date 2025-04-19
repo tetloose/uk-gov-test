@@ -1,0 +1,23 @@
+@use 'sass:map';
+
+@function vars($name, $variant: null) {
+  @if $variant {
+    @return map.get(map.get($vars, $name), $variant);
+  }
+  @else {
+    @return map.get($vars, $name);
+  }
+}
+
+$vars: (
+  settings: (
+    browser-context: 16px
+  ),
+  breakpoint: (
+    lrg: 501px
+  ),
+  radius: (
+    sml: 4px,
+    round: 50%
+  )
+);

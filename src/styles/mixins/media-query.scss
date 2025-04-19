@@ -1,0 +1,44 @@
+@mixin mq($width, $max: false) {
+  @if $max {
+    @media only screen and (max-width: $width - 1) {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and (min-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-between($minWidth, $max-width) {
+  @media only screen and (min-width: $minWidth) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin mq-height($height, $max: false) {
+  @if $max {
+    @media only screen and (max-height: $height - 1) {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and (min-height: $height) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-hover($mobile: false) {
+  @if $mobile {
+    @media (pointer: coarse) {
+      @content;
+    }
+  }
+  @else {
+    @media (hover: hover) and (pointer: fine) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "files.insertFinalNewline": true,
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "CSS": "CSS",
+    "SCSS": "CSS",
+    "typescript": "typescript"
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "eslint.validate": [
+    "typescript",
+    "javasciprt"
+  ],
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ],
+  "files.exclude": {
+    ".husky": true,
+    ".scripts": true,
+    ".vscode": true,
+    ".editorconfig": true,
+    ".env.example": true,
+    ".gitignore": true,
+    ".nvmrc": true,
+    "eslint.config.mjs": true,
+    "jest.config.mjs": true,
+    "package.json": true,
+    "stylelint.config.mjs": true,
+    "toolkit": true,
+    "tsconfig.json": true,
+    "webpack.config.mjs": true,
+    "yarn.lock": true,
+    "node_modules": true,
+    "__mocks__": true
+  },
+  "search.exclude": {
+    "node_modules": true,
+    "public": true
+  },
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative"
+}

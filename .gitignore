@@ -1,4 +1,7 @@
 .idea
 node_modules
-
-public/bundle.js
+.DS_Store
+.env
+!.env.example
+public
+coverage

@@ -1,0 +1,19 @@
+@use '@styles/settings' as *;
+
+html {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden auto;
+  background-color: $grey1;
+  font-size: 100%;
+
+  @extend %f-body;
+  @extend %f-regular;
+  @include font-smoothing;
+  @include scrollbar;
+
+  @include mq(vars(breakpoint, lrg), max-width) {
+    padding-right: rem(15px);
+    padding-left: rem(15px);
+  }
+}

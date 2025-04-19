@@ -1,0 +1,15 @@
+@use 'sass:map';
+
+@function deep-get($map, $keys...) {
+  $result: $map;
+
+  @each $key in $keys {
+    $result: map.get($result, $key);
+  }
+
+  @return $result;
+}
+
+// Usage
+// color: deep-get($colors, link, dark, default);
+// font-size: deep-get($vars, headings, font-size, sml);

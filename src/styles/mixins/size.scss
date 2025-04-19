@@ -1,0 +1,10 @@
+@use '@styles/settings/variables' as *;
+
+@function size($size) {
+  @return calc(vars(settings, spacing) * $size);
+}
+
+// Usage
+// e.g. padding-top: 42px;
+// 42 / vars(settings, spacing) = 42 / 4 = 10.5
+// padding-top: size(10.5)
