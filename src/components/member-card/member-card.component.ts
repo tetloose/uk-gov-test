@@ -4,7 +4,7 @@ import template from './member.template.hbs'
 import type { MemberCardData, MemberCardResponse } from './member-card.types'
 import './member-card.styles.scss'
 
-class MemberCard extends ComponentClass {
+export class MemberCard extends ComponentClass {
   private memberId: string
 
   constructor(module: HTMLElement) {
