@@ -10,6 +10,3 @@ if [ ! -f .env ]; then
   echo ".env not found, creating from .env.example..."
   cp .env.example .env
 fi
-
-echo "Starting development server..."
-yarn start
